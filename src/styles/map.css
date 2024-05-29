@@ -1,0 +1,466 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#map {
+	width: 100vw;
+	height: 100vh;
+	float: left;
+}
+
+.panel {
+	position: absolute;
+	right: 0;
+	height: 100vh;
+	min-width: 3rem;
+	text-align: center;
+}
+
+.background-img {
+	background-image: url('../../public/icons/panel-background.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#panel-content {
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	height: 100vh;
+	width: 40vw;
+	flex-direction: column;
+	overflow: auto;
+}
+
+#panel-header {
+	display: flex;
+	align-items: center;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	justify-content: center;
+	gap: 2rem;
+}
+
+#clock,
+#trip-back {
+	font-size: 2em;
+}
+
+#clock {
+	display: flex;
+	align-items: center;
+}
+
+#trip-back {
+	transform: rotate(90deg);
+	margin-left: 2rem;
+}
+
+#compass {
+	height: 5em;
+}
+
+#download {
+	bottom: 0;
+	font-size: 1rem;
+	left: 50%;
+	margin-top: auto;
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+img {
+	width: 1rem;
+	height: 1rem;
+}
+
+#message {
+	font-size: 1rem;
+}
+
+#search {
+	position: absolute;
+	margin-top: 0.5rem;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	background-color: white;
+	border-color: rgb(206, 206, 206);
+	border-style: solid;
+	border-width: 2px;
+	padding: 0.4rem;
+	border-radius: 20px;
+}
+
+#search-bar {
+	height: 1.5rem;
+	border-radius: 15px;
+	width: 30vw;
+	font-size: 1rem;
+	border-style: none;
+}
+
+#search-icon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 15px;
+}
+
+#search-bar:focus {
+	outline: none;
+}
+
+#close {
+	position: absolute;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 3rem;
+	background-color: rgba(189, 195, 199, 0.4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	top: 50%;
+	left: -1.5rem;
+	transform: translateY(-50%);
+}
+
+#close-arrow {
+	width: 2rem;
+	height: 2rem;
+	transform: rotate(180deg);
+}
+
+.checked {
+	color: red;
+}
+
+#locate {
+	position: absolute;
+	z-index: 9;
+	bottom: 0;
+}
+
+#locate-img {
+	width: 2rem;
+	height: 2rem;
+	margin: 0.8rem;
+}
+
+#visited-places {
+	margin-top: 5rem;
+	margin: 0 auto;
+	width: 100%;
+}
+
+#image-container,
+.trip-images {
+	outline: 1px solid black;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.trip-images {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#image-container {
+	padding-top: 1rem;
+	height: calc(170px - 1rem);
+	overflow-y: auto;
+}
+
+#image-container::-webkit-scrollbar {
+	width: 0;
+}
+
+#image-container p {
+	font-size: 0.8rem;
+}
+
+#choose-image {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+#add-place-form {
+	position: absolute;
+	flex-direction: column;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	justify-content: space-between;
+	gap: 1rem;
+	width: 20rem;
+}
+
+#title,
+#address,
+#description,
+#star-ratings,
+button {
+	padding: 0.5rem;
+	border-radius: 5px;
+	border-color: black;
+	border-width: 1px;
+}
+
+#description {
+	height: 5rem;
+}
+
+button {
+	background-color: transparent;
+}
+
+#star-ratings {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	transform: rotateY(180deg);
+}
+
+#star-ratings label {
+	cursor: pointer;
+}
+
+#star-ratings input {
+	display: none;
+}
+
+.star-outline,
+.star-outline-static {
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	background: hsl(38 90% 55%);
+	clip-path: polygon(
+		50% 0%,
+		61% 35%,
+		98% 35%,
+		68% 57%,
+		79% 91%,
+		50% 70%,
+		21% 91%,
+		32% 57%,
+		2% 35%,
+		39% 35%
+	);
+}
+
+.star-fill,
+.star-fill-static {
+	width: 1.5rem;
+	aspect-ratio: 1;
+	background: white;
+	clip-path: polygon(
+		50% 0%,
+		61% 35%,
+		98% 35%,
+		68% 57%,
+		79% 91%,
+		50% 70%,
+		21% 91%,
+		32% 57%,
+		2% 35%,
+		39% 35%
+	);
+}
+
+#star-ratings input:hover ~ label .star-fill,
+#star-ratings input:checked ~ label .star-fill {
+	background: hsl(38 90% 55%);
+}
+
+.trip-title,
+.location,
+.description {
+	margin-bottom: 0.5rem;
+	text-align: left;
+	font-size: 1rem;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.location {
+	margin-bottom: 0;
+	margin-top: 0rem;
+}
+
+.filled {
+	background: hsl(38 90% 55%);
+}
+
+.star-fill-static {
+	width: 1rem;
+}
+
+.star-outline-static {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.star-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.trip-container {
+	margin-bottom: 1.5rem;
+	padding: 2rem;
+	border-radius: 1rem;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#add-place-btn {
+	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.imgs {
+	display: inline-block;
+}
+
+.img-nav {
+	z-index: 10;
+	top: -50%;
+}
+
+.right {
+	transform: rotate(180deg);
+	position: absolute;
+	right: 0;
+	top: 50%;
+}
+
+.left {
+	position: absolute;
+	left: 0;
+	top: 50%;
+}
+
+.trip-imgs {
+	width: auto;
+	object-fit: cover;
+	height: 13rem;
+}
+
+#address-search {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#address {
+	width: 100%;
+}
+
+#address-search img {
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0.5rem;
+}
+
+.delete-trip {
+	display: flex;
+	margin-left: auto;
+}
+
+label {
+	display: block;
+}
+
+#attractions-container {
+	font-size: 1rem;
+	margin-left: 1rem;
+}
+
+#attractions,
+option {
+	width: 100%;
+	padding: 0.2rem;
+	background-color: transparent;
+	border-radius: 0.2rem;
+}
+
+#trip-back {
+	position: relative;
+	margin-left: 0;
+}
+
+.trip-container-header {
+	display: flex;
+	flex-direction: row;
+}
+
+.trip-box {
+	outline: 1px black solid;
+	width: 1rem;
+	height: 1rem;
+}
+
+.selected-trip {
+	background-image: url('../../public/icons/check.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.trip-images img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#download {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+	#add-place-form {
+		width: 300px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#panel-content {
+		width: 100vw;
+		display: flex;
+	}
+
+	#add-place-form {
+		width: 300px;
+	}
+
+	.panel {
+		top: calc(100% - 3rem);
+	}
+
+	#panel-header {
+		padding-top: 2rem;
+	}
+
+	#close {
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	#close-arrow {
+		transform: rotate(270deg);
+	}
+}

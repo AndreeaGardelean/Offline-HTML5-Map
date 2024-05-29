@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OMap</title>
+		<link type="text/css" rel="stylesheet" href="src/styles/map.css" />
+	</head>
+	<body>
+		<style>
+			@import 'node_modules/ol/ol.css';
+			@import 'src/styles/map.css';
+		</style>
+
+		<div id="container">
+			<div id="map"></div>
+			<div id="locate" hidden>
+				<img id="locate-img" src="./icons/location-crosshairs-solid.svg" />
+			</div>
+
+			<aside class="panel" status="close">
+				<div id="close">
+					<img id="close-arrow" src="./icons/angles-right-solid.svg" />
+				</div>
+				<div id="panel-content" hidden>
+					<div id="panel-header">
+						<div id="attractions-container">
+							<label for="attractions">Choose an attraction:</label>
+							<select name="attractions" id="attractions">
+								<option value="none">None</option>
+								<option value="cafe">Internet Cafe</option>
+								<option value="museums">Museum</option>
+								<option value="mall">Mall</option>
+								<option value="theatre">Threatre</option>
+							</select>
+						</div>
+						<time id="clock"></time>
+					</div>
+
+					<div id="visited-places">
+						<button id="add-place-btn">Add new trip</button>
+					</div>
+
+					<form id="add-place-form" hidden>
+						<img src="./icons/down-arrow.png" id="trip-back" />
+						<div id="image-container">
+							<label for="file-input">
+								<img id="choose-image" src="./icons/images-regular.svg" />
+								<p id="upload-message">Upload images from your trip here</p>
+							</label>
+							<input type="file" id="file-input" accept="image/*" style="display: none" multiple />
+						</div>
+
+						<div id="star-ratings" class="stars-container">
+							<input type="radio" name="stars" id="5" />
+							<label for="5">
+								<div class="star-outline">
+									<div class="star-fill"></div>
+								</div>
+							</label>
+
+							<input type="radio" name="stars" id="4" />
+							<label for="4">
+								<div class="star-outline">
+									<div class="star-fill"></div>
+								</div>
+							</label>
+
+							<input type="radio" name="stars" id="3" />
+							<label for="3">
+								<div class="star-outline">
+									<div class="star-fill"></div>
+								</div>
+							</label>
+
+							<input type="radio" name="stars" id="2" />
+							<label for="2">
+								<div class="star-outline">
+									<div class="star-fill"></div>
+								</div>
+							</label>
+
+							<input type="radio" name="stars" id="1" />
+							<label for="1">
+								<div class="star-outline">
+									<div class="star-fill"></div>
+								</div>
+							</label>
+						</div>
+
+						<input type="text" id="title" name="title" placeholder="Trip title" />
+
+						<div id="address-search">
+							<input type="text" id="address" name="address" placeholder="Trip location" />
+							<img src="./icons/manual-selection.png" alt="icon" id="manual-location" />
+						</div>
+
+						<textarea
+							id="description"
+							name="description"
+							placeholder="Write a few things from your experience for your future self!"></textarea>
+
+						<button id="submit">Save trip</button>
+					</form>
+
+					<div id="download">
+						<div>
+							<div id="download-map">
+								<img src="./icons/down-arrow.png" />
+								Download Map
+							</div>
+							<progress id="download-progress" max="100" value="0" hidden></progress>
+						</div>
+  					<div id="download-trips">
+							<img src="./icons/down-arrow.png" />
+							Download Trips
+						</div>	
+					</div>
+				</div>
+				</div>
+			</aside>
+		</div>
+
+		<script type="module" src="src/scripts/clock.js"></script>
+		<script type="module" src="src/scripts/indexedDB.js"></script>
+		<script type="module" src="src/scripts/addNewTrip.js"></script>
+		<script type="module" src="src/scripts/addTripsOnLoad.js"></script>
+		<script type="module" src="src/scripts/geocoding.js"></script>
+		<script type="module" src="src/scripts/tripFormBack.js"></script>
+		<script type="module" src="src/scripts/tripDelete.js"></script>
+		<script type="module" src="src/scripts/attractionsDB.js"></script>
+		<script type="module" src="src/scripts/museumsLayer.js"></script>
+		<script type="module" src="src/scripts/cafeLayer.js"></script>
+		<script type="module" src="src/scripts/theatreLayer.js"></script>
+		<script type="module" src="src/scripts/mallLayer.js"></script>
+		<script type="module" src="src/scripts/downloadTrips.js"></script>
+	</body>
+</html>

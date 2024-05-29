@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="Andreea Gardelean" />
+    <meta charset="UTF-8" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="ToDo.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 id="greeting">Plan your day for success!</h1>
+      <div id="time"></div>
+
+      <div id="tasks-container"></div>
+
+      <form id="task-form">
+        <input
+          type="text"
+          id="enter-task"
+          name="add-task"
+          placeholder="Add a task"
+        />
+        <input type="submit" value="Add" id="add-task" />
+      </form>
+    </div>
+    <script src="ToDo.js"></script>
+    <script>
+      const updateClock = () => {
+        const now = new Date();
+        const timeContainer = document.getElementById("time");
+
+        const hour = now.getHours().toString().padStart(2, "0");
+        const minute = now.getMinutes().toString().padStart(2, "0");
+        const second = now.getSeconds().toString().padStart(2, "0");
+
+        timeContainer.textContent = `${hour} : ${minute} : ${second}`;
+      };
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

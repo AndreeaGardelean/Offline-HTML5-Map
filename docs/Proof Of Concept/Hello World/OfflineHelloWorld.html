@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="Andreea Gardelean" />
+    <meta charset="UTF-8" />
+    <title>Offline 'Hello World'</title>
+    <style>
+      #greeting,
+      #description,
+      #time {
+        text-align: center;
+        color: red;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h1 id="greeting">Hello Offline World</h1>
+      <p id="description">You are viewing this page offline.</p>
+      <div id="time"></div>
+    </section>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const timeContainer = document.getElementById("time");
+
+        const hour = now.getHours().toString().padStart(2, '0');
+        const minute = now.getMinutes().toString().padStart(2, '0');
+        const second = now.getSeconds().toString().padStart(2, '0');
+
+        timeContainer.textContent = `${hour} : ${minute} : ${second}`
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

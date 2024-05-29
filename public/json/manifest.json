@@ -1,0 +1,15 @@
+{
+	"short_name": "OMap",
+	"name": "OMap",
+	"start_url": "/",
+	"display": "fullscreen",
+	"icons": [
+		{
+			"src": "../icons/icon.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"theme_color": "#242424",
+	"background_color": "#242424"
+}

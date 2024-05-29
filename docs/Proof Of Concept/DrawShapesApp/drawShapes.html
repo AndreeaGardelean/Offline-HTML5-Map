@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="Andreea Gardelean" />
+    <meta charset="UTF-8" />
+    <title>Draw shapes on canvas</title>
+    <script src="../../../scripts/jQuery.js"></script>
+  </head>
+
+  <body>
+    <style>
+      html,
+      body {
+        margin: 20px;
+      }
+
+      #black,
+      #orange,
+      #green {
+        width: 30px;
+        height: 30px;
+      }
+
+      #black {
+        background-color: black;
+      }
+
+      #orange {
+        background-color: orange;
+      }
+
+      #green {
+        background-color: green;
+      }
+
+      .selected {
+        width: 40px;
+        height: 40px;
+        outline: 2px red solid;
+      }
+
+      #eraser {
+        width: 40px;
+        height: 30px;
+        outline: 2px black solid;
+      }
+    </style>
+
+    <canvas id="canvas" width="1000px" height="800px">
+      Canvas is not supported by the current browser. If you see this message
+      update the browser version you are using.
+    </canvas>
+
+    <div id="picker">
+      <p>Pick your color:</p>
+      <div id="black"></div>
+      <div id="green"></div>
+      <div id="orange"></div>
+    </div>
+
+    <p>Eraser</p>
+    <div id="eraser"></div>
+    <script src="drawShapes.js"></script>
+  </body>
+</html>

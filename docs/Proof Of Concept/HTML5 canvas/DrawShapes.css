@@ -1,0 +1,12 @@
+#canvas {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.container {
+  position: absolute;
+  outline: 1px black solid;
+  width: 99vw;
+  height: 97vh;
+}
