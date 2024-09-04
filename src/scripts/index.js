@@ -97,7 +97,7 @@ export var map = new Map({
 });
 
 // create map layer
-const londonLayer = createLayer('http://localhost:3000/data/tiles/{z}/{x}/{y}.pbf');
+const londonLayer = createLayer('https://offline-html5-map.onrender.com/data/tiles/{z}/{x}/{y}.pbf');
 
 // add map layers
 map.addLayer(londonLayer);

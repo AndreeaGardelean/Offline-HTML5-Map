@@ -141,7 +141,7 @@ export const fetchAndAddTiles = async () => {
 			// request the tile coordinates for the zoom level
 			try {
 				const tileCoordinatesFetch = await fetch(
-					`http://localhost:3000/offline/tiles?zoom_level=${z}`,
+					`https://offline-html5-map.onrender.com/offline/tiles?zoom_level=${z}`,
 				);
 				const tileCoordinates = await tileCoordinatesFetch.json();
 
@@ -177,7 +177,7 @@ export const fetchAndAddTiles = async () => {
  * @returns exits when a tile does not exist in the database
  */
 export const fetchAndAddTile = async (z, x, y, retry) => {
-	const url = `http://localhost:3000/data/tiles/${z}/${x}/${y}.pbf`;
+	const url = `https://offline-html5-map.onrender.com/data/tiles/${z}/${x}/${y}.pbf`;
 	// try to fetch the tile
 	try {
 		const tileResponse = await fetch(url);
