@@ -6,14 +6,14 @@ const db = new sqlite3.Database(filepath);
 
 // Header to enable CORS
 const header = {
-	'Access-Control-Allow-Origin': 'https://offline-map.onrender.com/',
+	'Access-Control-Allow-Origin': 'https://offline-map.onrender.com',
 	'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
 	'Content-Type': 'application/x-protobuf',
 	'Content-Encoding': 'gzip',
 };
 
 const offlineHeaders = {
-	'Access-Control-Allow-Origin': 'https://offline-map.onrender.com/',
+	'Access-Control-Allow-Origin': 'https://offline-map.onrender.com',
 	'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
 	'Content-Type': 'application/json',
 };
